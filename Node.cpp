@@ -6,7 +6,7 @@ void insert(Node* first, int index, string str)
 	if (index >= 0)
 	{
 		Node* current = first;
-		for (int i = 0; i < index-2; i++)
+		for (int i = 0; i < index-1; i++)
 		{
 			current = current->next;
 		}
@@ -43,42 +43,6 @@ Node* opentext(string filePath)
 	inf.close();
 	return first;
 }
-
-
-/*void* entertext()
-{
-	Node* ptr;
-	Node* current = first;
-	string answer, str;
-	cout << "input the first string:" << endl;
-	cin >> str;
-	Node* newNode = new Node();
-	newNode->row = str;
-
-	first = ptr;
-	current = ptr;
-
-	cout << "Do you want continue? (’n’ if no)";
-	cin >> answer;
-	while (answer != "n")
-	{
-		cout << "input a string:" << endl;
-		cin >> str;
-		newNode->row = str;
-		current->next = ptr;
-		current = ptr;
-		cout << "Do you want continue? (’n’ if no)";
-		cin >> answer;
-	}
-	current = first;
-	while (current != NULL)
-	{
-		cout << current->row << endl;
-		current = current->next;
-	}
-	return first;
-}*/
-
 
 
 Node* remove(Node* first, int index)
@@ -176,4 +140,21 @@ Node* copyInsert(Node* first, int index, int target)
 	return first;
 }
 
+void writetext(Node* first)
+{
+	ofstream outf("../out.txt");
+	if (!outf)
+	{
+		cout << "error!";
+	}
+	Node* current = first;
+	while (current != NULL)
+	{
+		outf << current->row<< endl;
+		current = current->next;
+	}
+
+	cout << "file writed!";
+	outf.close();
+}
 

@@ -11,7 +11,7 @@ int main() {
 	cin >> file;
 	Node* first = opentext(file);
 	cout << "\n===========Insert============\n";
-	insert(first, 2, "Hello!");
+	insert(first, 3, "Hello!");
 	display(first);
 	cout << "\n===========REMOVE======================\n";
 	first = remove(first, 4);
@@ -21,6 +21,8 @@ int main() {
 	cout << "\n=====================================\n";
 	display(first);
 	cout << "\n===========COPYINSERT======================\n";
-	first = copyInsert(first, 1, 4);
+	first = copyInsert(first, 2, 4);
 	display(first);
+	cout << "\n==============================================\n";
+	writetext(first);
 }
